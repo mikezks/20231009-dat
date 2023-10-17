@@ -2,9 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Flight } from '../model/flight';
+import { DummyFlightService } from './dummy-flight.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+  // useClass: DummyFlightService
 })
 export class FlightService {
   private http = inject(HttpClient);
