@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Flight } from '../model/flight';
 import { CityPipe } from '../shared/city.pipe';
 import { FlightService } from './flight.service';
+import { FlightCardComponent } from "../flight-card/flight-card.component";
 
 @Component({
-  selector: 'app-flight-search',
-  standalone: true,
-  imports: [CommonModule, FormsModule, CityPipe],
-  templateUrl: './flight-search.component.html',
-  styleUrls: ['./flight-search.component.css']
+    selector: 'app-flight-search',
+    standalone: true,
+    templateUrl: './flight-search.component.html',
+    styleUrls: ['./flight-search.component.css'],
+    imports: [CommonModule, FormsModule, CityPipe, FlightCardComponent]
 })
 export class FlightSearchComponent {
   from = 'Hamburg';
