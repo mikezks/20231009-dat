@@ -39,4 +39,19 @@ export class FlightSearchComponent {
   select(flight: Flight): void {
     this.selectedFlight = flight;
   }
+
+  demo(): void {
+    // Lambda Expression
+    const serverCallback = (flights: Flight[]) => {
+      this.flights = flights
+    };
+
+    const that = this;
+    // JavaScript Function
+    function serverCallback2(flights: Flight[]) {
+      that.flights = flights
+    }
+  }
 }
+
+

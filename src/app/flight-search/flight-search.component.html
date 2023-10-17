@@ -14,16 +14,17 @@
         <label>To:</label>
         <input [(ngModel)]="to" name="to" class="form-control" />
       </div>
+
+      <div class="form-group">
+        <button
+          [disabled]="!from || !to"
+          (click)="search()"
+          class="btn btn-default"
+        >
+          Search
+        </button>
+      </div>
     </form>
-    <div class="form-group">
-      <button
-        [disabled]="!from || !to"
-        (click)="search()"
-        class="btn btn-default"
-      >
-        Search
-      </button>
-    </div>
   </div>
 </div>
 
