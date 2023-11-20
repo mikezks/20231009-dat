@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Flight } from '../model/flight';
 import { FormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { CityValidatorDirective } from '../shared/validation/city-validator.directive';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
   imports: [
     CommonModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    CityValidatorDirective
   ],
   templateUrl: './flight-edit.component.html',
   styleUrls: ['./flight-edit.component.css']

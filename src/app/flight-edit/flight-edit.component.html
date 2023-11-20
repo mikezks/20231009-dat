@@ -18,6 +18,7 @@
           class="form-control"
           required
           minlength="3"
+          city
         />
       </div>
       <div
@@ -39,6 +40,16 @@
         Please enter at least {{
           editForm?.controls?.['from']?.errors?.['minlength']?.requiredLength
         }} chars.
+      </div>
+      <div
+        *ngIf="editForm?.controls?.['from']?.hasError('city')"
+        class="alert alert-danger"
+      >
+        City name is not valid.<br>
+        Please enter one of the following cities:<br>
+        {{
+          editForm?.controls?.['from']?.errors?.['city']?.validCities.join(', ')
+        }}
       </div>
       <!-- <div>
         <pre>{{ editForm?.controls?.['from']?.errors | json }}</pre>
