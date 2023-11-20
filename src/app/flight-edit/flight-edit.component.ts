@@ -21,6 +21,9 @@ import { CityValidatorDirective } from '../shared/validation/city-validator.dire
 export class FlightEditComponent {
   dialogRef = inject(MatDialogRef);
   data = inject<{ flight: Flight }>(MAT_DIALOG_DATA);
+  validCities = [
+    'Graz', 'Hamburg'
+  ];
 
   protected flight: Flight = this.data.flight;
   /* {
