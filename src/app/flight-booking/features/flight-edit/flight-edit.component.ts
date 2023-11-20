@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Flight } from '../../../model/flight';
 import { ValidationErrorsComponent } from '../../../shared/validation/validation-errors/validation-errors.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-flight-edit',
@@ -13,18 +14,24 @@ import { ValidationErrorsComponent } from '../../../shared/validation/validation
   styleUrls: ['./flight-edit.component.css'],
 })
 export class FlightEditComponent {
-  dialogRef = inject(MatDialogRef);
-  data = inject<{ flight: Flight }>(MAT_DIALOG_DATA);
+  route = inject(ActivatedRoute);
 
-  /*
-    Alternative:
-    type FlightData = { flight: Flight };
-    data = inject<FlightData>(MAT_DIALOG_DATA);
-  */
+  id = 0;
+  showDetails = false;
+  flight = {
+    id: 999,
+    from: 'Rom',
+    to: 'Madrid',
+    date: '',
+    delayed: false
+  };
 
-  flight = this.data.flight;
+  constructor() {
+    this.route.paramMap.subscribe(params => {
+      this.id = +(params.get('id') || 0);
+      this.showDetails = params.get('showDetails') === 'true';
 
-  close(): void {
-    this.dialogRef.close();
+      this.flight.id = this.id;
+    })
   }
 }

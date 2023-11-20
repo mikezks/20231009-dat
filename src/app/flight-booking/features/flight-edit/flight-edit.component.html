@@ -5,6 +5,7 @@
 
   <mat-dialog-content>
     <div class="card-body">
+      <p>Show Details: {{ showDetails }}</p>
       <form #form="ngForm">
         <app-validation-errors
           [errors]="form?.controls?.['from']?.errors ?? {}"
@@ -36,10 +37,6 @@
             class="form-checkbox"
           />
           <label for="delayed">Delayed</label>
-        </div>
-
-        <div class="form-group">
-          <button (click)="close()" class="btn btn-default">Close</button>
         </div>
       </form>
     </div>
