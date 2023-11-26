@@ -4,11 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { Flight } from '../model/flight';
 import { FormsModule } from '@angular/forms';
 import { FlightService } from './flight.service';
+import { FlightRowComponent } from '../flight-row/flight-row.component';
 
 @Component({
   selector: 'app-flight-search',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    FlightRowComponent
+  ],
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.css']
 })
@@ -40,9 +45,5 @@ export class FlightSearchComponent {
         console.error('Error loading flights', errResp);
       },
     });
-  }
-
-  select(f: Flight): void {
-    this.selectedFlight = f;
   }
 }
